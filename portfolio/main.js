@@ -17,10 +17,13 @@ const navbar__work_btn = document.querySelector('#navbar__work-btn');
 const navbar__testimonials_btn = document.querySelector('#navbar__testimonials-btn');
 const navbar__contact_btn = document.querySelector('#navbar__contact-btn');
 
+const arrow_up_btn = document.getElementById('arrow_up_btn');
+
 document.addEventListener('scroll', ()=>{
   let home_op = 1;
   if (window.scrollY < navbarHeight){
     navbar.classList.remove('navbar--dark');
+    arrow_up_btn.classList.remove('active');
     return;
   }
   else if (window.scrollY <= aboutTop){ // in home section
@@ -29,27 +32,42 @@ document.addEventListener('scroll', ()=>{
     home__container.style.opacity = home_op;  
     navbar__home_btn.classList.add('active');
     navbar__about_btn.classList.remove('active');
+    arrow_up_btn.classList.add('active');
   }
   else if(window.scrollY < skillsTop){ // in about section
     navbar__home_btn.classList.remove('active');
     navbar__about_btn.classList.add('active');
     navbar__skills_btn.classList.remove('active');
+    arrow_up_btn.classList.add('active');
   }
   else if(window.scrollY < workTop){
     navbar__about_btn.classList.remove('active');
     navbar__skills_btn.classList.add('active');
     navbar__work_btn.classList.remove('active');
+    arrow_up_btn.classList.add('active');
   }
   else if(window.scrollY < testimonialsTop){
     navbar__skills_btn.classList.remove('active');
     navbar__work_btn.classList.add('active');
     navbar__testimonials_btn.classList.remove('active');
+    arrow_up_btn.classList.add('active');
   }
   else{
     navbar__testimonials_btn.classList.remove('active');
     navbar__contact_btn.classList.add('active');
+    arrow_up_btn.classList.add('active');
   }
 });
+
+arrow_up_btn.addEventListener('click', (event) =>{
+  window.scrollTo({
+    top:0,
+    left:0,
+    behavior: 'smooth'
+  });
+});
+
+
 
 navbar.addEventListener('click', (event)=>{
   const target = event.target;
@@ -69,3 +87,4 @@ contact_btn.addEventListener('click',(event) => {
 function customScrollIntoView(selector){
   document.querySelector(selector).scrollIntoView({behavior: "smooth"});
 }
+
