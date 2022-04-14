@@ -471,7 +471,7 @@ ul{
 
 #arrow_up_btn.active{
   opacity: 1;
-  pointer-events: visible;
+  pointer-events: auto;
 }
 
 
