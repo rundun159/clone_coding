@@ -22,12 +22,12 @@
     </div>  
     <div class="navbar__menu">
       <ul class="navbar__menu">
-        <li class="navbar__menu__item active" onclick="moveHome()" >Home</li>
-        <li class="navbar__menu__item" onclick="moveAbout()" >About</li>
-        <li class="navbar__menu__item" onclick="moveSkills()">Skills</li>
-        <li class="navbar__menu__item" onclick="moveMyWork()">My Work</li>
-        <li class="navbar__menu__item" onclick="moveTestimonial()">Testimonial</li>
-        <li class="navbar__menu__item" onclick="moveContact()">Contact</li>
+        <li class="navbar__menu__item active" data-link="#home" >Home</li>
+        <li class="navbar__menu__item" data-link="#about" >About</li>
+        <li class="navbar__menu__item" data-link="#skills" >Skills</li>
+        <li class="navbar__menu__item" data-link="#work" >My Work</li>
+        <li class="navbar__menu__item" data-link="#testimonials" >Testimonial</li>
+        <li class="navbar__menu__item" data-link="#contact" >Contact</li>
       </ul>
     </div>
 
@@ -41,7 +41,7 @@
     <img src="imgs/garam_img_0.png" alt="Garam's profile" class="home__avatar" width=150px height=100px/>
     <h1 class="home__title">Hello, <br />I'm Garam</h1>
     <h2 class="home__description">Lover of Jesus</h2>
-    <button class="home__contact" onclick="moveContact()">Contact Me</button>
+    <button class="home__contact" id="home__contact" data-link="#contact">Contact Me</button>
   </section>
 
   <!-- About -->
