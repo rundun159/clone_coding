@@ -103,6 +103,10 @@ ul{
   padding-left: 0;
 }
 
+.navbar__menu__container{
+  display: flex;
+}
+
 .navbar__menu{
   display: flex;
 }
@@ -462,8 +466,8 @@ ul{
 .navbar__toggle-btn{
   position:absolute;
   color: var(--color-white);
-  top: 24px;
-  right: 24px;
+  top: 6px;
+  right: 12px;
 
   font-size: 24px;
   display: none;
@@ -503,11 +507,30 @@ ul{
     flex-direction: column;
     align-items: flex-start;
   }
+  .navbar.activate{
+    
+  }
   .navbar__menu{
     flex-direction: column;
     text-align: center;
     width: 100%;
+  }
+  .navbar__menu__container{
+    width:100%;
     display: none;
+  }
+  .navbar__menu__container.active{
+    display: block;
+  }
+  .navbar__menu__container__anime{
+    transform: translateY(-100px);
+    width : 100%;
+    opacity: 0;
+    transition: all var(--animation-duration) ease;
+  }
+  .navbar__menu__container__anime.visible{
+    opacity: 1;
+    transform: translateY(0);
   }
   .about__majors{
     flex-direction: column;
@@ -525,5 +548,6 @@ ul{
     width: 100px;
     height: 100px;
   }
+  
 }
 

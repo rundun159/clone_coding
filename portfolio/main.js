@@ -156,3 +156,34 @@ function add_class_list(ele_list, class_name)
   for(let i=0; i < ele_list.length; i++)
     ele_list[i].classList.add(class_name);
 }
+
+const navbar__toggle_btn = document.querySelector('.navbar__toggle-btn');
+const navbar__menu__container = document.querySelector('.navbar__menu__container');
+const navbar__menu__container__anime = document.querySelector('.navbar__menu__container__anime');
+let is_toggle_selected = false;
+navbar__toggle_btn.addEventListener('click', (event) => {
+  if(is_toggle_selected)
+  {
+    navbar__menu__container__anime.classList.remove('visible');
+    navbar__menu__container.classList.remove('active');
+    is_toggle_selected = false;
+  }
+  else
+  {
+    navbar__menu__container__anime.classList.add('visible');
+    navbar__menu__container.classList.add('active');
+    navbar.classList.add('navbar--dark');
+    is_toggle_selected = true;
+  }
+});
+
+// const navbar__menu__item__list = document.querySelectorAll('.navbar__menu__item');
+// for(let navbar__menu__item of navbar__menu__item__list)
+// {
+//   navbar__menu__item.addEventListener('click', (event)=>{
+//     console.log("It is clicked");
+//     navbar__menu__container__anime.classList.remove('visible');
+//     navbar__menu__container.classList.remove('active');
+//     is_toggle_selected = false;
+//   });
+// }
