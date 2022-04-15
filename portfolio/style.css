@@ -320,6 +320,13 @@ ul{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  opacity: 1;
+  transition: all var(--animation-duration) ease-out;
+}
+
+.work__projects.anime-out{
+  opacity: 0;
+  transform: scale(0.96) translateY(50px);
 }
 
 .project{
@@ -329,10 +336,21 @@ ul{
   margin: 2px;
   background-color: var(--color-blue);
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  display:none;
+
+  /* opacity: 0;
+  pointer-events: none; */
 }
+
+.project.active{
+  display: block;
+  /* opacity: 1;
+  pointer-events: auto; */
+}
+
 
 .project__img{
   max-width: 100%;
@@ -473,6 +491,7 @@ ul{
   opacity: 1;
   pointer-events: auto;
 }
+
 
 
 @media screen and (max-width:768px) {

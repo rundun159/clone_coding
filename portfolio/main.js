@@ -88,18 +88,71 @@ function customScrollIntoView(selector) {
 
 // my work section 
 // button event handling
-const class_arr_dict = {
-  'FE': new Array(),
-  'BE': new Array(),
-  'Mobile': new Array(),
-};
+// const class_arr_dict = new Map({
+//   'FE': new Array(),
+//   'BE': new Array(),
+//   'Mobile': new Array(),
+// });
+
+const class_arr_dict = new Map([
+  ['FE', new Array()],
+  ['BE', new Array()],
+  ['Mobile', new Array()]
+]);
+
+
 const projects = document.querySelector('.work__projects');
 const project_list = projects.children;
 
 for (let i = 0; i < project_list.length; i++) {
   const project = project_list[i];
+  class_arr_dict.get(project.dataset.class).push(document.getElementById(project.id));
+}
 
-  // console.log(project);
-  console.log(project.dataset.class);
+const work_categories = document.querySelector('.work__categories');
+const work_btn_list = work_categories.children;
 
+work_btn_list[0].addEventListener('click', (event) => {
+  for(let work_btn_ of work_btn_list)
+    work_btn_.classList.remove('active');
+  work_btn_list[0].classList.add('active');
+
+  projects.classList.add('anime-out');
+  setTimeout(()=>{
+    for(const [key, value] of class_arr_dict)   
+      add_class_list(value, 'active');  
+    projects.classList.remove('anime-out');
+  }, 300);  
+
+});
+
+for (let i=1; i<work_btn_list.length; i++){
+  const work_btn = work_btn_list[i];
+  work_btn.addEventListener('click', (event)=>{
+    for(let work_btn_ of work_btn_list)
+      work_btn_.classList.remove('active');
+    work_btn.classList.add('active');
+    projects.classList.add('anime-out');
+    setTimeout(()=>{
+      for(const [key, value] of class_arr_dict){
+        if (key==work_btn.dataset.class)
+          add_class_list(value, 'active');
+        else
+          remove_class_list(value, 'active');      
+      }
+      projects.classList.remove('anime-out');
+  }, 300);
+  });
+}
+
+function remove_class_list(ele_list, class_name)
+{
+  for(let i=0; i < ele_list.length; i++)
+    ele_list[i].classList.remove(class_name);
+}
+
+function add_class_list(ele_list, class_name)
+{
+  for(let i=0; i < ele_list.length; i++)
+    ele_list[i].classList.add(class_name);
 }
