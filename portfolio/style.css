@@ -548,6 +548,9 @@ ul{
     width: 100px;
     height: 100px;
   }
-  
+  .home__avatar{
+    width: 300px;
+    height: 300px;
+  }
 }
 
